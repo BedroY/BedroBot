@@ -1,13 +1,13 @@
 const Discord = require('discord.js');
+const generateImage = require("./generateImage");
 require("dotenv").config();
 
 const client = new Discord.Client({ 
   intents:[
     "GUILDS", 
-    "GUILD_MESSAGES"
+    "GUILD_MESSAGES",
+    "GUILD_MEMBERS"
   ]});
-
-
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
@@ -23,16 +23,11 @@ client.on('messageCreate', (message) => {
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
 
-  if(command === 'cum'){
-    message.channel.send('Cum!!!');
-  }
-
-  if(command === 'nocum'){
-    message.channel.send('You will not cum.');
-  }
-
-  if(command === 'coom'){
-    message.channel.send('IM COOOOOMIIIIIING AAAAAAAAH');
-    message.channel.send('https://tenor.com/view/coom-coomer-coomed-gif-15144427');
-  }
 });
+
+const welcomeChannelID = "345242129401905153";
+
+client.on("guildMemberAdd", async member => {
+  const img = await generateImage(member);
+  member.guild.channels.cache.get(welcomeChannelID).send({content: `<@${member.id}> Welcome to the server!`, files: [img]});
+})

@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "My first robot, it simply replies with cum",
   "main": "main.js",
+  "type:": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "BedroY",
   "license": "ISC",
   "dependencies": {
+    "canvas": "^2.9.0",
     "discord.js": "^13.6.0",
     "dotenv": "^14.2.0"
   }
