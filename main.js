@@ -23,6 +23,10 @@ client.on('messageCreate', (message) => {
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
 
+  if(command === "hello!"){
+    message.reply(`Hello ${member.id}`);
+  }
+
 });
 
 const welcomeChannelID = "345242129401905153";
