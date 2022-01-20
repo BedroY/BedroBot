@@ -27,18 +27,5 @@ client.loadEvents(bot,false);
 client.loadCommands(bot,false);
 
 module.exports = bot;
-// client.on("ready", () => {
-//     console.log(`Logged in as ${client.user.tag}`)
-// })
-
-// client.on("messageCreate", (message) => {
-//     if (message.content == "!hi"){
-//         message.reply("Hello World!")
-//     }
-// })
-
-// const welcomeChannelId = "345242129401905153"
-
-
 
 client.login(process.env.TOKEN)
