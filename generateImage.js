@@ -1,6 +1,6 @@
 const Canvas = require("canvas")
 const Discord = require("discord.js")
-const background = "https://i.pinimg.com/originals/2b/b0/b6/2bb0b64e4a03f47a497dfb1f96493182.jpg"
+const background = "https://static3.cbrimages.com/wordpress/wp-content/uploads/2021/10/gurren-lagann-2.jpg"
 
 const dim = {
     height: 675,
