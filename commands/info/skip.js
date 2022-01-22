@@ -11,8 +11,8 @@ module.exports = {
     if(queue) {
         client.distube.skip(message)
 
-    } else if (!queue) {
-        return
+    } else if (!queue){
+        return;
     };
   }
 }
