@@ -1,5 +1,7 @@
 const {getFiles} = require('../util/functions.js')
-const {DisTube} = require('distube');
+const {DisTube} = require('distube')
+const { SpotifyPlugin } = require("@distube/spotify")
+const { SoundCloudPlugin } = require("@distube/soundcloud")
 
 module.exports = (bot, reload) => {
   const {client} = bot;
@@ -54,9 +56,10 @@ function initEvents(bot){
     triggerEventHandler(bot, "guildMemberAdd", member);
   })
 
-  bot.client.distube = new DisTube(bot.client, {searchSongs : 0, emitNewSongOnly: true});
+  bot.client.distube = new DisTube(bot.client, {searchSongs : 0, emitNewSongOnly: true, plugins : [new SpotifyPlugin({emitEventsAfterFetching: true}),
+    new SoundCloudPlugin({emitEventsAfterFetching: true})]});
   bot.client.distube.on("playSong", (queue, song) => queue.textChannel.send(`Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}`));
-  bot.client.distube.on("finish", queue => queue.textChannel.send("No more song in queue"));
+  bot.client.distube.on("finish", queue => queue.textChannel.send("No more songs in queue, leaving channel!"));
   bot.client.distube.on("disconnect", queue => queue.textChannel.send("Disconnected from the channel!"));
   bot.client.distube.on("addSong", (queue, song) => queue.textChannel.send(`Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}.`));
 }
