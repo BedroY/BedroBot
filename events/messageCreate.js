@@ -31,14 +31,7 @@ module.exports = {
       await command.run({...bot,message,args})
     }
     catch (error){
-      let errMessage = err.toString();
-
-      if(errMessage.startsWith("?")){
-        errMessage = errMessage.slice(1);
-        await message.reply(errMessage);
-      } else {
-        console.error(error);
-      }
+      console.error(error);
+      } 
     }
   }
-}

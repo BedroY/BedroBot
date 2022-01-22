@@ -1,21 +1,20 @@
-const Discord = require("discord.js")
-require("dotenv").config()
-
-const generateImage = require("./generateImage")
+const Discord = require("discord.js");
+require("dotenv").config();
 
 const client = new Discord.Client({
     intents: [
         "GUILDS",
         "GUILD_MESSAGES",
-        "GUILD_MEMBERS"
+        "GUILD_MEMBERS",
+        "GUILD_VOICE_STATES",
     ]
-})
+});
 
 let bot = {
   client,
   prefix: "!",
   owners: ["178924031829868545"]
-}
+};
 
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();

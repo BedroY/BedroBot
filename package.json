@@ -10,8 +10,15 @@
   "author": "BedroY",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/opus": "^0.7.0",
     "canvas": "^2.9.0",
     "discord.js": "^13.6.0",
-    "dotenv": "^14.2.0"
+    "distube": "^3.2.0",
+    "dotenv": "^14.2.0",
+    "ffmpeg-static": "^4.4.1",
+    "libsodium-wrappers": "^0.7.9",
+    "weather-js": "^2.0.0",
+    "yt-search": "^2.10.3",
+    "ytdl-core": "^4.10.0"
   }
 }
