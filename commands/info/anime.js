@@ -19,16 +19,16 @@ module.exports = {
          message.channel.send("No results! Try searching for a different anime!");
        } else {
          
-      const movie = res.data.data[0];
-      const {canonicalTitle, synopsis, startDate, endDate, episodeCount, episodeLength, averageRating, ratingRank, status, subtype} = movie.attributes;
-      const genres = movie.relationships.genres.links.self;
+      const anime = res.data.data[0];
+      const {canonicalTitle, synopsis, startDate, endDate, episodeCount, episodeLength, averageRating, ratingRank, status, subtype} = anime.attributes;
+      const genres = anime.relationships.genres.links.self;
       //console.log(movie);
-      console.log(movie.attributes);
+      console.log(anime.attributes);
 
         const exampleEmbed = new MessageEmbed()
         .setColor("RANDOM")
         .setAuthor(`${canonicalTitle}`)
-        .setThumbnail(`${movie.attributes.posterImage.medium}`)
+        .setThumbnail(`${anime.attributes.posterImage.medium}`)
         .setDescription(`${synopsis}`)
         .addField('Status ⏳ ',`${status}`, true)
         .addField('Type 📺',` ${subtype}`, true)
