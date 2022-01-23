@@ -30,9 +30,9 @@ module.exports = {
       .setAuthor(`${title}`)
       .setThumbnail(`${IMG_URL}${poster_path}`)
       .setDescription(`**${overview}**`)
-      .addField('Release Date', `${release_date}`, true)
-      .addField('Rating', `${vote_average}`, true) 
-      .addField('Amount of Ratings',`${vote_count}`, true)
+      .addField('Release Date 📅', `${release_date}`, true)
+      .addField('Rating 🌟', `${vote_average}`, true) 
+      .addField('Amount of Ratings ✨',`${vote_count}`, true)
 
        message.reply({ embeds: [exampleEmbed] });
     })}

@@ -25,12 +25,12 @@ module.exports = {
       .setAuthor(`Weather forecast for ${current.observationpoint}`)
       .setThumbnail(current.imageUrl)
       .setDescription(`**${current.skytext}**`)
-      .addField('TimeZone', `UTC ${location.timezone}`, true)
-      .addField('Degree Type', 'Celcius', true)
-      .addField('Temperature', `${current.temperature}°`, true) 
-      .addField('Wind', `${current.winddisplay}`, true)
-      .addField('Feels Like', `${current.feelslike}°`, true)
-      .addField('Humidity', `${current.humidity}%`, true)
+      .addField('TimeZone 🕐', `UTC ${location.timezone}`, true)
+      .addField('Degree Type 🌡️', 'Celcius', true)
+      .addField('Temperature 🌡️', `${current.temperature}°`, true) 
+      .addField('Wind 💨', `${current.winddisplay}`, true)
+      .addField('Feels Like 🤔', `${current.feelslike}°`, true)
+      .addField('Humidity 💧', `${current.humidity}%`, true)
 
        message.reply({ embeds: [exampleEmbed] });
     })
