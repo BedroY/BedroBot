@@ -1,6 +1,7 @@
 const { default: axios } = require('axios') 
 const Discord = require('discord.js')
 const {MessageEmbed} = require('discord.js');
+require("dotenv").config();
 
 module.exports = {
     name: "films",
@@ -9,7 +10,7 @@ module.exports = {
     devOnly: false,
     run: async function({client, message, args})  {
     const BASE_URL = 'https://api.themoviedb.org/3';
-    const API_KEY = '?api_key=01582d9b6b0eb47fafd37bd2fc1352a7';
+    const API_KEY = `?api_key=${process.env.API_KEY}`;
     const SEARCH = '/search/movie';
     const QUERY = `&query=${args.join('%20')}`
     const API_URL = BASE_URL + SEARCH + API_KEY + QUERY;
