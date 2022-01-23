@@ -7,7 +7,7 @@ module.exports = {
     permissions: [],
     devOnly: false,
     run: async function({client, message, args})  {
-        axios.get("https://dog.ceo/api/breeds/image/random").then(function (res) {
+        axios.get(`https://dog.ceo/api/breeds/image/random`).then(function (res) {
             const dog = res.data;
             message.channel.send(dog.message)
     })

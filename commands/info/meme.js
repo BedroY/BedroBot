@@ -7,9 +7,12 @@ module.exports = {
     permissions: [],
     devOnly: false,
     run: async function({client, message, args})  {
-        axios.get(`https://meme-api.herokuapp.com/gimme/me_irl`).then(function (res) {
+        let subreddit = ['me_irl', 'THE_PACK'];
+        let random = Math.floor(Math.random() * subreddit.length);
+        let memeReddit = subreddit[random];
+        axios.get(`https://meme-api.herokuapp.com/gimme/${memeReddit}`).then(function (res) {
             console.log(res)
-            const pack = res.data;
-            message.channel.send(pack.url)
+            const meme = res.data;
+            message.channel.send(meme.url)
     })
 }}
