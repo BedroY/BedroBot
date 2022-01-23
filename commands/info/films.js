@@ -19,9 +19,11 @@ module.exports = {
           message.channel.send("Please enter a movie!");
         } else {
       axios.get(API_URL).then(function (res) {
-       
+       if(res.data.results.length === 0){
+         message.channel.send("No results! Try searching for a different movie!");
+       } else {
+         
       const movie = res.data.results[0];
-      console.log(movie.length);
       const {title, overview, release_date, vote_average, vote_count, poster_path} = movie;
       console.log(title);
 
@@ -35,5 +37,7 @@ module.exports = {
       .addField('Amount of Ratings ✨',`${vote_count}`, true)
 
        message.reply({ embeds: [exampleEmbed] });
-    })}
+      }
+    })
+  }
 }}
