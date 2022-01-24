@@ -9,7 +9,15 @@ module.exports = {
     permissions: [],
     devOnly: false,
     run: async function({client, message, args})  {
-    const BASE_URL = `https://kitsu.io/api/edge/anime?filter[text]=${args.join(" ")}`;
+    
+    let BASE_URL = `https://kitsu.io/api/edge/anime?filter[text]=${args.join(" ")}`;
+
+    if(args[0] === 'random'){
+      const random = Math.floor(Math.random() * 9999);
+      BASE_URL = `https://kitsu.io/api/edge/anime/?filter[id]=${random}`
+    }else {
+      BASE_URL = `https://kitsu.io/api/edge/anime?filter[text]=${args.join(" ")}`;
+    }
     
     if(args.length === 0){
           message.channel.send("Please enter an anime!");

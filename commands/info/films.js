@@ -16,6 +16,7 @@ module.exports = {
     const API_URL = BASE_URL + SEARCH + API_KEY + QUERY;
     const IMG_URL = 'https://image.tmdb.org/t/p/w500';
     
+    
     if(args.length === 0){
           message.channel.send("Please enter a film!");
         } else {
