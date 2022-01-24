@@ -7,12 +7,13 @@ module.exports = {
   permissions: [],
   devOnly: false,
   run: async function({client, message, args})  {
+    if(args.length === 0){
+      message.channel.send("Please enter a location!");
+    } else {
     weather.find({search: args, degreeType: 'C'}, function(err, result) {
       if(err) console.log(err);
 
-      if(!args[0]) return message.channel.send('Please specify a location!')
-
-      if(result === undefined || result.length === 0) return message.channel.send('**invlaid** location!!')
+      if(result === undefined || result.length === 0) return message.channel.send('No results for that location, please try a different location!')
      
       console.log(JSON.stringify(result, null, 2));
 
@@ -34,4 +35,5 @@ module.exports = {
 
        message.reply({ embeds: [exampleEmbed] });
     })
+    }
 }}
