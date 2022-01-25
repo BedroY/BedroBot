@@ -1,5 +1,6 @@
 const { default: axios } = require("axios");
 const { MessageEmbed } = require("discord.js");
+require("dotenv").config();
 
 function millisToMinutesAndSeconds(millis) {
   var minutes = Math.floor(millis / 60000);
@@ -19,7 +20,7 @@ module.exports = {
       params: { q: `${args}`, type: "multi", limit: "50" },
       headers: {
         "x-rapidapi-host": "spotify23.p.rapidapi.com",
-        "x-rapidapi-key": "84c826928bmsh6d536d2cf013686p18c992jsnce0a67a959bf",
+        "x-rapidapi-key": `${process.env.SPOTIFY_API_KEY}`,
       },
     };
 
