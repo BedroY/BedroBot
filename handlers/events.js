@@ -56,6 +56,9 @@ function initEvents(bot) {
     triggerEventHandler(bot, "guildMemberAdd", member);
   });
 
+  
+  
+
   bot.client.distube = new DisTube(bot.client, {
     searchSongs: 0,
     emitNewSongOnly: true,

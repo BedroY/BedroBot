@@ -34,7 +34,13 @@ module.exports = {
           .addField("Temperature 🌡️", `${current.temperature}°`, true)
           .addField("Wind 💨", `${current.winddisplay}`, true)
           .addField("Feels Like 🤔", `${current.feelslike}°`, true)
-          .addField("Humidity 💧", `${current.humidity}%`, true);
+          .addField("Humidity 💧", `${current.humidity}%`, true)
+          .setTimestamp()
+          .setFooter({
+            text: "BedroBot",
+            iconURL:
+              "https://cdn.discordapp.com/attachments/634648075809325075/935627937993076776/Allmight.png",
+          });
 
         message.reply({ embeds: [exampleEmbed] });
       });

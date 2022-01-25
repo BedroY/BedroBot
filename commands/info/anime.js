@@ -63,7 +63,13 @@ module.exports = {
             .addField("Total Episodes 🌟", `${episodeCount}`, true)
             .addField("Duration  ⏱️", `${episodeLength} mins`, true)
             .addField("Average Rating ✨", `**${averageRating}/100**`, true)
-            .addField("Rank 🏆", `**TOP ${ratingRank}**`, true);
+            .addField("Rank 🏆", `**TOP ${ratingRank}**`, true)
+            .setTimestamp()
+            .setFooter({
+              text: "BedroBot",
+              iconURL:
+                "https://cdn.discordapp.com/attachments/634648075809325075/935627937993076776/Allmight.png",
+            });
 
           message.reply({ embeds: [exampleEmbed] });
         }

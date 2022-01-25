@@ -44,7 +44,13 @@ module.exports = {
             .setDescription(`**${overview}**`)
             .addField("Release Date 📅", `${release_date}`, true)
             .addField("Rating 🌟", `${vote_average}`, true)
-            .addField("Amount of Ratings ✨", `${vote_count}`, true);
+            .addField("Amount of Ratings ✨", `${vote_count}`, true)
+            .setTimestamp()
+            .setFooter({
+              text: "BedroBot",
+              iconURL:
+                "https://cdn.discordapp.com/attachments/634648075809325075/935627937993076776/Allmight.png",
+            });
 
           message.reply({ embeds: [exampleEmbed] });
         }
