@@ -1,5 +1,6 @@
 const api = require("novelcovid");
 const { MessageEmbed } = require("discord.js");
+const { millify } = require("millify");
 
 module.exports = {
   name: "covid",
@@ -27,19 +28,22 @@ module.exports = {
             recovered,
             todayRecovered,
             active,
+            activePerOneMillion,
+
+
           } = res;
 
           const exampleEmbed = new MessageEmbed()
             .setColor("RANDOM")
             .setAuthor(`${country}`)
             .setThumbnail(`${res.countryInfo.flag}`)
-            .addField("Total cases", `${cases}`, true)
-            .addField("Total deaths", `${deaths}`, true)
-            .addField("Total recovered", `${recovered}`, true)
-            .addField("Daily cases", `+${todayCases}`, true)
-            .addField("Daily recovered", `+${todayRecovered}`, true)
-            .addField("Daily deaths", `+${todayDeaths}`, true)
-            .addField("Active cases", `${active}`, true);
+            .addField("Total cases", `${millify(cases)}`, true)
+            .addField("Total deaths", `${millify(deaths)}`, true)
+            .addField("Total recovered", `${millify(recovered)}`, true)
+            .addField("Daily cases", `+${millify(todayCases)}`, true)
+            .addField("Daily recovered", `+${millify(todayRecovered)}`, true)
+            .addField("Daily deaths", `+${millify(todayDeaths)}`, true)
+            .addField("Active cases", `${millify(active)}`, true);
 
           message.reply({ embeds: [exampleEmbed] });
         }
