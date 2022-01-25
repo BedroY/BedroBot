@@ -2,29 +2,25 @@ const Discord = require("discord.js");
 require("dotenv").config();
 
 const client = new Discord.Client({
-    intents: [
-        "GUILDS",
-        "GUILD_MESSAGES",
-        "GUILD_MEMBERS",
-        "GUILD_VOICE_STATES",
-    ]
+  intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS", "GUILD_VOICE_STATES"],
 });
 
 let bot = {
   client,
   prefix: "!",
-  owners: ["178924031829868545"]
+  owners: ["178924031829868545"],
 };
 
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 
-client.loadEvents = (bot,reload) => require("./handlers/events")(bot,reload);
-client.loadCommands = (bot,reload) => require("./handlers/commands")(bot,reload);
+client.loadEvents = (bot, reload) => require("./handlers/events")(bot, reload);
+client.loadCommands = (bot, reload) =>
+  require("./handlers/commands")(bot, reload);
 
-client.loadEvents(bot,false);
-client.loadCommands(bot,false);
+client.loadEvents(bot, false);
+client.loadCommands(bot, false);
 
 module.exports = bot;
 
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN);
