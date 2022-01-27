@@ -29,8 +29,6 @@ module.exports = {
             todayRecovered,
             active,
             activePerOneMillion,
-
-
           } = res;
 
           const exampleEmbed = new MessageEmbed()

@@ -33,17 +33,19 @@ module.exports = {
             vote_average,
             vote_count,
             poster_path,
+            backdrop_path,
           } = movie;
           console.log(title);
-          console.log(args);
+          console.log(res.data.results[0]);
 
           const exampleEmbed = new MessageEmbed()
             .setColor("RANDOM")
             .setAuthor(`${title}`)
             .setThumbnail(`${IMG_URL}${poster_path}`)
-            .setDescription(`**${overview}**`)
+            .setImage(`${IMG_URL}${backdrop_path}`)
+            .setDescription(`${overview}`)
             .addField("Release Date 📅", `${release_date}`, true)
-            .addField("Rating 🌟", `${vote_average}`, true)
+            .addField("Rating 🌟", `${vote_average}/10`, true)
             .addField("Amount of Ratings ✨", `${vote_count}`, true)
             .setTimestamp()
             .setFooter({
