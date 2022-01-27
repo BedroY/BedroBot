@@ -13,7 +13,7 @@ module.exports = {
     const API_KEY = `?api_key=${process.env.FILM_API_KEY}`;
     const SEARCH = "/search/movie";
     const QUERY = `&query=${args.join("%20")}`;
-    const API_URL = BASE_URL + SEARCH + API_KEY + QUERY;
+    let API_URL = BASE_URL + SEARCH + API_KEY + QUERY;
     const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
     if (args.length === 0) {

@@ -18,7 +18,7 @@ module.exports = {
             "No results for that location, please try a different location!"
           );
 
-        console.log(JSON.stringify(result, null, 2));
+        console.log(JSON.stringify(result[0], null, 2));
 
         var current = result[0].current;
         var location = result[0].location;
@@ -29,7 +29,7 @@ module.exports = {
           .setAuthor(`Weather forecast for ${current.observationpoint}`)
           .setThumbnail(current.imageUrl)
           .setDescription(`**${current.skytext}**`)
-          .addField("TimeZone 🕐", `UTC ${location.timezone}`, true)
+          .addField("Timezone 🕐", `UTC ${location.timezone}`, true)
           .addField("Degree Type 🌡️", "Celcius", true)
           .addField("Temperature 🌡️", `${current.temperature}°`, true)
           .addField("Wind 💨", `${current.winddisplay}`, true)

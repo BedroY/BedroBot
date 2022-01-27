@@ -11,6 +11,9 @@ module.exports = {
 
     const music = args.join(" ");
 
-    client.distube.play(message, music);
+    if (!music) {
+      message.channel.send("Please provide a song!");
+    }
+    await client.distube.play(message, music);
   },
 };

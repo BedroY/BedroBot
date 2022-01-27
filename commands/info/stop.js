@@ -9,12 +9,6 @@ module.exports = {
         "You must be in a voice channel to use this command."
       );
 
-    let queue = await client.distube.getQueue(message);
-
-    if (queue) {
-      client.distube.stop(message);
-    } else if (!queue) {
-      return;
-    }
+    await client.distube.stop(message);
   },
 };

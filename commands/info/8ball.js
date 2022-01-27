@@ -34,10 +34,16 @@ module.exports = {
     let question = args.slice().join(" ");
 
     const exampleEmbed = new MessageEmbed()
-      .setTitle(`🎱 ${message.author.username}`)
-      .setColor("NOT_QUITE_BLACK")
+      .setTitle(`${message.author.username} 🎱`)
+      .setColor("RANDOM")
       .addField("Question", question)
-      .addField("Answer", replies[result]);
+      .addField("Answer", replies[result])
+      .setTimestamp()
+      .setFooter({
+        text: "BedroBot",
+        iconURL:
+          "https://cdn.discordapp.com/attachments/634648075809325075/935627937993076776/Allmight.png",
+      });
 
     message.channel.send({ embeds: [exampleEmbed] });
   },
