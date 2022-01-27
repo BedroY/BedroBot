@@ -1,6 +1,6 @@
 module.exports = {
   name: "stop",
-  category: "info",
+  category: "music",
   permissions: [],
   devOnly: false,
   run: async ({ client, message, args }) => {

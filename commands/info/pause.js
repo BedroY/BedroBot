@@ -1,5 +1,5 @@
 module.exports = {
-  name: "skip",
+  name: "pause",
   category: "music",
   permissions: [],
   devOnly: false,
@@ -9,6 +9,7 @@ module.exports = {
         "You must be in a voice channel to use this command."
       );
 
-    await client.distube.skip(message);
+    await client.distube.pause(message);
+    message.channel.send("Paused!");
   },
 };
