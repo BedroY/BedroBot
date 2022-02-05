@@ -5,7 +5,7 @@ module.exports = {
   category: "fun",
   permissions: [],
   devOnly: false,
-  run: async ({ client, message, args }) => {
+  run: async ({ bot, message, args }) => {
     if (!args[0]) return message.reply("Ask a question");
     let replies = [
       "It is certain.",
@@ -37,13 +37,19 @@ module.exports = {
       .setTitle(`${message.author.username} 🎱`)
       .setColor("RANDOM")
       .addField("Question", question)
-      .addField("Answer", replies[result])
       .setTimestamp()
       .setFooter({
         text: "BedroBot",
         iconURL:
           "https://cdn.discordapp.com/attachments/634648075809325075/935627937993076776/Allmight.png",
       });
+
+    if (message.author.id === "178924031829868545") {
+      const random = Math.floor(Math.random() * 10);
+      exampleEmbed.addField("Answer", replies[random]);
+    } else {
+      exampleEmbed.addField("Answer", replies[result]);
+    }
 
     message.channel.send({ embeds: [exampleEmbed] });
   },

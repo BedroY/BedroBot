@@ -41,7 +41,13 @@ module.exports = {
             .addField("Daily cases", `+${millify(todayCases)}`, true)
             .addField("Daily recovered", `+${millify(todayRecovered)}`, true)
             .addField("Daily deaths", `+${millify(todayDeaths)}`, true)
-            .addField("Active cases", `${millify(active)}`, true);
+            .addField("Active cases", `${millify(active)}`, true)
+            .setTimestamp()
+            .setFooter({
+              text: "BedroBot",
+              iconURL:
+                "https://cdn.discordapp.com/attachments/634648075809325075/935627937993076776/Allmight.png",
+            });
 
           message.reply({ embeds: [exampleEmbed] });
         }
