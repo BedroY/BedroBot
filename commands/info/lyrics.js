@@ -1,8 +1,5 @@
 const ftl = require("findthelyrics");
 const { MessageEmbed } = require("discord.js");
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 module.exports = {
   name: "lyrics",
@@ -22,7 +19,7 @@ module.exports = {
         }
 
         const exampleEmbed = new MessageEmbed()
-          .setTitle(`${capitalizeFirstLetter(args)} 🎱`)
+          .setTitle(`${args} 🎱`)
           .setDescription(resp)
           .setTimestamp()
           .setFooter({
