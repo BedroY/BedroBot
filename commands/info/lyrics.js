@@ -11,7 +11,7 @@ module.exports = {
   devOnly: false,
   run: async ({ client, message, args }) => {
     if (args.length === 0) {
-      message.channel.send("Please enter a film!");
+      message.channel.send("Please enter a song!");
     } else {
       ftl.find(args, function (err, resp) {
         if (!err) {
