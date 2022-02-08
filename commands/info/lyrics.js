@@ -26,24 +26,24 @@ module.exports = {
       ftl.find(q, function (err, resp) {
         if (!err) {
           console.log(resp);
+
+          let finalResult = titleCase(q);
+
+          const exampleEmbed = new MessageEmbed()
+            .setTitle(`${finalResult}`)
+            .setDescription(resp)
+            .setTimestamp()
+            .setFooter({
+              text: "BedroBot",
+              iconURL:
+                "https://cdn.discordapp.com/attachments/634648075809325075/935627937993076776/Allmight.png",
+            });
+
+          message.channel.send({ embeds: [exampleEmbed] });
         } else {
           console.log(err);
           message.channel.send("No result! Please try again!");
         }
-
-        let finalResult = titleCase(q);
-
-        const exampleEmbed = new MessageEmbed()
-          .setTitle(`${finalResult}`)
-          .setDescription(resp)
-          .setTimestamp()
-          .setFooter({
-            text: "BedroBot",
-            iconURL:
-              "https://cdn.discordapp.com/attachments/634648075809325075/935627937993076776/Allmight.png",
-          });
-
-        message.channel.send({ embeds: [exampleEmbed] });
       });
     }
   },
