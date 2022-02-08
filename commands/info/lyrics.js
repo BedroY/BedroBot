@@ -29,17 +29,23 @@ module.exports = {
 
           let finalResult = titleCase(q);
 
-          const exampleEmbed = new MessageEmbed()
-            .setTitle(`${finalResult}`)
-            .setDescription(resp)
-            .setTimestamp()
-            .setFooter({
-              text: "BedroBot",
-              iconURL:
-                "https://cdn.discordapp.com/attachments/634648075809325075/935627937993076776/Allmight.png",
-            });
+          if (resp.length > 5000) {
+            message.channel.send(
+              "Lyrics unfortunetly too long, try a different song!"
+            );
+          } else {
+            const exampleEmbed = new MessageEmbed()
+              .setTitle(`${finalResult}`)
+              .setDescription(resp)
+              .setTimestamp()
+              .setFooter({
+                text: "BedroBot",
+                iconURL:
+                  "https://cdn.discordapp.com/attachments/634648075809325075/935627937993076776/Allmight.png",
+              });
 
-          message.channel.send({ embeds: [exampleEmbed] });
+            message.channel.send({ embeds: [exampleEmbed] });
+          }
         } else {
           console.log(err);
           message.channel.send("No result! Please try again!");
