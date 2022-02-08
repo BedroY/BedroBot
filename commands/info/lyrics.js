@@ -10,7 +10,8 @@ module.exports = {
     if (args.length === 0) {
       message.channel.send("Please enter a song!");
     } else {
-      ftl.find(args, function (err, resp) {
+      const q = args.join(" ");
+      ftl.find(q, function (err, resp) {
         if (!err) {
           console.log(resp);
           message.channel.send("No result! Please try again!");
@@ -19,7 +20,7 @@ module.exports = {
         }
 
         const exampleEmbed = new MessageEmbed()
-          .setTitle(`${args} 🎱`)
+          .setTitle(`${q}`)
           .setDescription(resp)
           .setTimestamp()
           .setFooter({
